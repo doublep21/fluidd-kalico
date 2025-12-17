@@ -666,6 +666,7 @@ declare namespace Klipper {
     sync_drive: boolean;
     sync_feedback_state: string;
     sync_feedback_enabled: boolean;
+    sync_feedback_flow_rate: number;
     sync_feedback_bias_modelled: number;
     clog_detection: number;
     clog_detection_enabled: number;
@@ -681,6 +682,15 @@ declare namespace Klipper {
     servo: string;
     grip?: string;
     sensors: Record<string, boolean | null>;
+    flowguard?: {
+      trigger: string;
+      reason: string;
+      level: number;
+      max_clog: number;
+      max_tangle: number;
+      active: boolean;
+      enabled: boolean;
+    };
     encoder?: {
       encoder_pos: number;
       detection_length: number;
