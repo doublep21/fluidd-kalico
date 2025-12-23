@@ -7,12 +7,12 @@
     <v-row no-gutters>
       <!-- Label -->
       <v-col
+        v-safe-html="label"
         cols="12"
         sm="5"
         align-self="center"
         class="text-body-1"
         :class="{ 'text--disabled': disabled }"
-        v-html="label"
       />
 
       <!-- Current value -->
@@ -136,7 +136,7 @@ export default class AppNamedSlider extends Vue {
   onCurrentValue (value: string) {
     const valueAsNumber = +value
 
-    if (!isNaN(valueAsNumber)) {
+    if (!Number.isNaN(valueAsNumber)) {
       this.checkOverride(valueAsNumber)
       this.sliderValue = valueAsNumber
     }
