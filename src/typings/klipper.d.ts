@@ -438,7 +438,8 @@ declare namespace Klipper {
   export interface ProbeState {
     name?: string;
     last_query: number;
-    last_z_result: number;
+    last_z_result?: number;
+    last_probe_position?: [number, number, number];
   }
 
   export interface PwmCycleTimeState {
