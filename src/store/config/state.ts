@@ -54,6 +54,7 @@ export const defaultState = (): ConfigState => {
         showRelativeHumidity: true,
         showBarometricPressure: true,
         showGasResistance: true,
+        showControlStats: true,
         showSaveConfigAndRestart: true,
         showUploadAndPrint: true,
         flipConsoleLayout: false,

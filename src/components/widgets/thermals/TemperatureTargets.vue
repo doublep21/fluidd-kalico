@@ -74,6 +74,13 @@
           <td class="temp-actual">
             <span v-if="item.temperature != null && !item.disconnected">
               {{ item.temperature.toFixed(1) }}<small>°C</small>
+              <template v-if="showControlStats && item.control_stats">
+                <small><br>{{ $t('app.chart.label.temp_block') }}: {{ item.control_stats.temp_block.toFixed(1) }}°C</small>
+                <small><br>{{ $t('app.chart.label.temp_sensor') }}: {{ item.control_stats.temp_sensor.toFixed(1) }}°C</small>
+                <small><br>{{ $t('app.chart.label.temp_ambient') }}: {{ item.control_stats.temp_ambient.toFixed(1) }}°C</small>
+                <small><br>{{ $t('app.chart.label.loss_ambient') }}: {{ item.control_stats.loss_ambient.toFixed(1) }}</small>
+                <small><br>{{ $t('app.chart.label.loss_filament') }}: {{ item.control_stats.loss_filament.toFixed(1) }}</small>
+              </template>
             </span>
             <span v-else>
               -
@@ -406,6 +413,10 @@ export default class TemperatureTargets extends Mixins(StateMixin) {
 
   get showGasResistance (): boolean {
     return this.$typedState.config.uiSettings.general.showGasResistance
+  }
+
+  get showControlStats (): boolean {
+    return this.$typedState.config.uiSettings.general.showControlStats
   }
 
   setHeaterTargetTemp (heater: string, target: number) {

@@ -108,10 +108,15 @@ app:
       current: Actual
       fan_breakpoints: Fan Breakpoints
       item: Name
+      loss_ambient: Loss ambient
+      loss_filament: Loss filament
       power: Power
       rate_of_change: Change
       target_temperature: Target Temperature
       target: Target
+      temp_ambient: Ambient temp
+      temp_block: Block temp
+      temp_sensor: Sensor temp
       turn_off: Turn Off
     title:
       mpc_calibrate: MPC Calibrate {name}
@@ -764,6 +769,7 @@ app:
       show_chart: Show chart
       show_code_lens: Show CodeLens
       show_gas_resistance: Show gas resistance
+      show_control_stats: Show heater control stats
       show_legend: Show legend
       show_logo_on_background: Show logo on background
       show_rate_of_change: Show temperature rate of change
