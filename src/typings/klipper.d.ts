@@ -349,6 +349,16 @@ declare namespace Klipper {
     Raw: number;
   }
 
+  export interface HeaterControlStats {
+    temp_block: number;
+    temp_sensor: number;
+    temp_ambient: number;
+    power: number;
+    loss_ambient: number;
+    loss_filament: number;
+    filament_temp: (number | string)[];
+  }
+
   export interface ExtruderState {
     temperature: number;
     target: number;
@@ -358,6 +368,7 @@ declare namespace Klipper {
     smooth_time: number;
     motion_queue?: string | null;
     pid_profile?: string;
+    control_stats?: HeaterControlStats;
   }
 
   export interface HeaterBedState {
@@ -365,12 +376,14 @@ declare namespace Klipper {
     target: number;
     power: number;
     pid_profile?: string;
+    control_stats?: HeaterControlStats;
   }
 
   export interface HeaterGenericState {
     temperature: number;
     target: number;
     power: number;
+    control_stats?: HeaterControlStats;
   }
 
   export interface HeatersState {

@@ -126,6 +126,7 @@ export interface GeneralConfig {
   showRelativeHumidity: boolean;
   showBarometricPressure: boolean;
   showGasResistance: boolean;
+  showControlStats: boolean;
   showSaveConfigAndRestart: boolean;
   showUploadAndPrint: boolean;
   flipConsoleLayout: boolean;

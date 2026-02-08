@@ -89,6 +89,17 @@
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+
+          <v-list-item @click="showControlStats = !showControlStats">
+            <v-list-item-action class="my-0">
+              <v-checkbox :input-value="showControlStats" />
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ $t('app.setting.label.show_control_stats') }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </v-list>
       </v-menu>
     </template>
@@ -204,6 +215,18 @@ export default class TemperatureCard extends Mixins(StateMixin, BrowserMixin) {
   set showGasResistance (value: boolean) {
     this.$typedDispatch('config/saveByPath', {
       path: 'uiSettings.general.showGasResistance',
+      value,
+      server: true
+    })
+  }
+
+  get showControlStats (): boolean {
+    return this.$typedState.config.uiSettings.general.showControlStats
+  }
+
+  set showControlStats (value: boolean) {
+    this.$typedDispatch('config/saveByPath', {
+      path: 'uiSettings.general.showControlStats',
       value,
       server: true
     })
